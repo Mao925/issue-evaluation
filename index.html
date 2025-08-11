@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ターゲット数の推定プロンプト生成用</title>
+    <title>課題と問題の適合性評価プロンプト</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,8 +53,8 @@
     <div class="container mx-auto max-w-4xl p-4 sm:p-6 md:p-8 min-h-screen flex flex-col justify-center">
         
         <header class="text-center mb-10 fade-in">
-            <h1 class="text-4xl sm:text-5xl font-bold text-gradient mb-3">ターゲット数の推定<br>プロンプト生成用</h1>
-            <p class="text-slate-400 text-lg">データに基づき、事業のポテンシャルを明らかにします。</p>
+            <h1 class="text-4xl sm:text-5xl font-bold text-gradient mb-3">課題と問題の適合性評価</h1>
+            <p class="text-slate-400 text-lg">論理的な評価で、問題の本質を見抜きます。</p>
         </header>
 
         <main class="glass-card p-6 sm:p-8 rounded-2xl shadow-2xl shadow-emerald-900/20 space-y-8 fade-in" style="animation-delay: 0.2s;">
@@ -71,7 +71,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                                     推奨AIモデル
                                 </h3>
-                                <p>このプロンプトは、データ分析と論理的思考に優れたAIモデルで最高の性能を発揮します。</p>
+                                <p>このプロンプトは、論理的思考と深い分析力に優れたAIモデルで最高の性能を発揮します。</p>
                                 <ul class="list-disc list-inside mt-2 pl-2 space-y-1 text-slate-400">
                                     <li><strong>Google: Gemini 2.5 Pro</strong></li>
                                 </ul>
@@ -82,7 +82,7 @@
                                     利用フロー
                                 </h3>
                                 <ol class="list-decimal list-inside mt-2 pl-2 space-y-1 text-slate-400">
-                                    <li>下の入力欄に、調査したい「問題」を具体的に入力します。</li>
+                                    <li>下の入力欄に、分析したい「問題」と「課題」を入力します。</li>
                                     <li>「プロンプトを生成」ボタンで、AIへの指示文が完成します。</li>
                                     <li>「コピー」ボタンで指示文をコピーし、AIに貼り付けて実行します。</li>
                                 </ol>
@@ -94,15 +94,23 @@
 
             <hr class="border-slate-700/80">
 
-            <!-- Step 2: Input Problem -->
+            <!-- Step 2: Input Problem & Issue -->
             <section id="input-section">
                 <div class="flex items-start gap-4 sm:gap-6">
                     <div class="flex-shrink-0 border-2 border-emerald-500/50 text-emerald-400 rounded-full h-10 w-10 flex items-center justify-center font-bold text-lg shadow-inner shadow-emerald-900/50">2</div>
                     <div>
-                        <h2 class="text-2xl font-bold text-slate-100 mb-3">調査したい問題を入力</h2>
-                        <label for="problemInput" class="block text-sm font-medium text-slate-400 mb-2">「誰が、いつ、どこで、〇〇したいが、〇〇できない」形式で入力してください。</label>
-                        <textarea id="problemInput" rows="4" class="w-full p-4 bg-slate-900/70 border border-slate-600 rounded-lg text-slate-200 placeholder-slate-500 transition duration-150 focus-ring-gradient" placeholder="例： 中小企業の経営者が、新規事業を検討する際、オフィスで、自社の業界の市場規模やトレンドを素早く把握したいが、高価な調査レポートを買う予算がない。"></textarea>
-                        <button id="generateBtn" class="mt-4 w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-emerald-600 to-teal-700 text-white font-bold rounded-lg shadow-lg hover:shadow-emerald-500/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-emerald-500 transition-all duration-300 transform hover:scale-105">
+                        <h2 class="text-2xl font-bold text-slate-100 mb-4">問題と課題を入力</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <label for="problemInput" class="block text-lg font-medium text-slate-300 mb-2">【問題】</label>
+                                <textarea id="problemInput" rows="3" class="w-full p-4 bg-slate-900/70 border border-slate-600 rounded-lg text-slate-200 placeholder-slate-500 transition duration-150 focus-ring-gradient" placeholder="例：世代間の交流が断絶され、高齢者の持つ経験価値と若者の成長機会という、双方にとっての社会的機会が失われていること。"></textarea>
+                            </div>
+                            <div>
+                                <label for="issueInput" class="block text-lg font-medium text-slate-300 mb-2">【課題】</label>
+                                <textarea id="issueInput" rows="4" class="w-full p-4 bg-slate-900/70 border border-slate-600 rounded-lg text-slate-200 placeholder-slate-500 transition duration-150 focus-ring-gradient" placeholder="例：&#10;1. 出会いにおける心理的・物理的な安全性への懸念&#10;2. 互いのスキルやニーズが可視化されておらず、価値交換の機会を発見できない"></textarea>
+                            </div>
+                        </div>
+                        <button id="generateBtn" class="mt-6 w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-emerald-600 to-teal-700 text-white font-bold rounded-lg shadow-lg hover:shadow-emerald-500/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-emerald-500 transition-all duration-300 transform hover:scale-105">
                             <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75zM3.75 6a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15A.75.75 0 013.75 6zm0 12a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75z" />
                             </svg>
@@ -141,6 +149,7 @@
 
     <script>
         const problemInput = document.getElementById('problemInput');
+        const issueInput = document.getElementById('issueInput');
         const generateBtn = document.getElementById('generateBtn');
         const outputSection = document.getElementById('output-section');
         const promptOutput = document.getElementById('promptOutput');
@@ -148,130 +157,107 @@
         const messageBox = document.getElementById('messageBox');
 
         const promptTemplate = `
-# 役割（Role）
-あなたは、日本の市場を専門とする経験豊富なマーケットリサーチャー兼データアナリストです。公的機関の統計データ、信頼性の高い調査会社のレポート、業界ニュースなど、多角的な情報源を基に、特定の「問題」から考えられるターゲットセグメントを複数定義し、その市場規模（人数）、および既存の代替手段と課題を客観的かつ論理的に分析することを得意とします。
+# 役割 (Role)
+あなたは、鋭い洞察力を持つ熟練の戦略コンサルタントであり、ロジカルシンキングの専門家です。社会問題からビジネス課題まで、複雑な事象の因果関係を正確に見抜き、本質的な課題を特定することを得意としています。
 
-# 背景（Context）
-私は現在、新規事業のアイデアを検証する初期段階にいます。最初のステップとして、解決したい「問題」の潜在的な市場規模、つまり、その問題を抱えているターゲットが日本にどのくらい存在するのかを、客観的なデータに基づいて把握したいと考えています。 また、彼らが現状その問題をどのように解決しようとしているのか、そしてなぜ完全に満足できていないのかを理解することで、事業の提供価値を明確にしたいです。
+# 具体的なタスク (Task)
+ユーザーから提示される「問題」と、その根本原因として設定された「課題」の適合性を評価してください。あなたの評価は、私たちがより効果的な解決策を立案するための重要な羅針盤となります。
 
-# タスク（Task）
-これから提示する「調査したい問題」に基づき、以下のステップに従って、考えられるターゲット市場規模の分析レポートを作成してください。
+以下の手順に従って、分析と評価を行ってください。
+1.  **課題の分析:** 提示された各課題が、どのように問題の根本原因となっているのか、その因果関係を論理的に分析します。
+2.  **評価基準の設定:** 課題と問題の適合性を評価するための基準を、スコア1-2から9-10までの5段階で、あなた自身で定義してください。平均的な適合性をスコア5-6と設定します。
+3.  **評価の実行:** 設定した基準に基づき、総合的な適合性を1～10の10段階で評価します。
+4.  **根拠の提示:** なぜその評価スコアになるのか、以下の観点から具体的かつ客観的な根拠を説明します。
+    * **定性的な根拠:** 因果関係の強さ、論理の飛躍の有無、課題の網羅性（その課題で問題の主要因をどれだけカバーできているか）、解像度の適切さ（抽象的すぎたり具体的すぎたりしないか）など。
+    * **定量的な根拠/示唆:** あなたの評価を裏付けるために、どのようなデータや調査結果が考えられるか、具体的な示唆を提示してください。（例：「もし〇〇に関する調査で△△という結果が出ていれば、この課題設定の妥当性はさらに高まる」など）
 
-1.  **問題の分析とターゲット要素の抽出**：
-    まず、問題定義文の「誰が」の部分を分析し、ターゲットとなりうる中心的な属性（例：中小企業の経営者）を抽出してください。
+# 背景情報 (Context)
+私たちは、意義のある社会問題や事業課題の解決を目指すチームです。しかし、問題の捉え方や、その原因として設定する課題がずれていては、どんなに優れた解決策も意味をなしません。あなたの客観的で厳しい視点からのフィードバックは、私たちの思考のバイアスを取り除き、プロジェクトを成功に導くために不可欠です。
 
-2.  **ターゲットセグメントの提案**：
-    次に、抽出した中心属性を軸に、市場規模を推定するために有効な、複数の具体的な「ターゲットセグメント」を3つ程度提案してください。これらのセグメントは、異なる切り口（例：従業員規模、業種、地域など）で定義し、なぜそのセグメントが有望と考えられるのか、簡単な理由も添えてください。
-
-3.  **各セグメントの詳細分析**：
-    提案した各セグメントについて、以下の2点を分析してください。
-    * **現状の代替手段と未解決の課題**： ターゲットが現在、当該問題を解決するために利用しているであろう具体的なサービス名や手段を挙げ、それらでは解決しきれていない点（例：価格、機能、使いやすさなど）を明確に記述してください。
-    * **市場規模（人数）の推定**： ターゲットとなるおおよその人数を、信頼できる情報源を基に論理的に推定してください。計算ロジックと出典は必ず明記してください。
-
-4.  **サマリーと総合評価**：
-    最後に、算出した各セグメントの推定人数と、そのセグメントの総合的な魅力を評価するサマリー表を作成してください。
-    総合魅力度評価は、5点を平均とし、1から10の10段階で評価してください。この評価は、単純な人数の多さだけでなく、**「問題の切実さ（ペインの強さ）」「支払い意欲の高さ」「アプローチのしやすさ」**なども考慮した、あなたの専門家としての総合的な判断を反映させてください。
-    各セグメントの評価の根拠を簡潔に説明してください。
-
-# 調査したい問題
-以下の形式に沿って、調査したい問題を具体的に記述してください。この「誰が」の部分が市場規模を推定する上での出発点となります。
-
-* **形式**： 「（誰が）、（いつ）、（どこで）、〇〇したいが、〇〇できない」
-* **記述欄**： {{PROBLEM}}
-
-# 出力形式（Format）
-必ず日本語で、以下のマークダウン形式に沿って、構造化されたレポートとして出力してください。
-数値データには、必ず情報源の名称と公開年、可能であればURLを「(出典：〇〇、△△年)」の形式で明記してください。
-プロフェッショナルなトーンを保ちつつ、ビジネスプランニングの初心者が直感的に理解できるよう、平易な言葉で記述してください。
+# 具体例 (Examples)
+例えば、以下のような入力に対して分析を行うことを期待しています。
 
 ---
-# ターゲット市場規模の分析レポート
+**【問題】**
+世代間の交流が断絶され、高齢者の持つ経験価値と若者の成長機会という、双方にとっての社会的機会が失われていること。
 
-## 1. 問題の分析とターゲット要素の抽出
-* **対象問題**： {{PROBLEM}}
-* **中心的なターゲット要素**： 上記の問題定義文における「誰が」に該当するのは、「（問題から抽出したターゲット）」です。この要素を軸に、市場規模を分析します。
+**【課題】**
+1.  出会いにおける心理的・物理的な安全性への懸念
+2.  互いのスキルやニーズが可視化されておらず、価値交換の機会を発見できない
+---
 
-## 2. 推定のためのターゲットセグメント提案
-「（中心的なターゲット要素）」という広い括りの中から、特に問題のペインが強いと考えられる、具体的で測定可能なセグメントを3つ提案します。
+この場合、「安全性への懸念（課題1）は、確かに交流への心理的ブレーキとなり、機会損失（問題）に繋がるな」「スキルやニーズの不透明性（課題2）は、マッチングを阻害し、これも機会損失（問題）の直接的な原因だ」「この2つで主要な障壁はカバーできているだろうか？時間や場所、金銭的な制約といった他の要因は考慮しなくて良いか？」といった多角的な思考を経て、評価と根拠を組み立ててください。
 
-* **セグメントA**： （例：IT・情報通信業に従事する、従業員10名未満の小規模事業者の経営者）
-    * **提案理由**： （例：IT業界は変化が激しく情報収集ニーズが高い一方、小規模事業者は調査にかけるリソースが特に限られていると考えられるため。）
-* **セグメントB**： （例：設立5年以内のスタートアップ企業の経営者）
-    * **提案理由**： （例：新規事業展開や資金調達のために市場調査が不可欠だが、コスト意識が非常に高いため。）
-* **セグメントC**： （例：地方都市（三大都市圏以外）に本社を置く、製造業の中小企業経営者）
-    * **提案理由**： （例：情報へのアクセスが都心部より限定的であり、安価で迅速な情報収集手段への潜在的ニーズが高いと考えられるため。）
+# 出力形式 (Format)
+以下のMarkdown形式で、構造的に出力してください。
 
-## 3. 各セグメントの詳細分析
+---
+### 総合評価
+**適合スコア: [ここに1〜10のスコアを記入] / 10**
 
-### 【セグメントA：(セグメントAの定義を記載)】
-* **現状の代替手段と未解決の課題**：
-    * **代替手段**： （例：SPEEDA、帝国データバンク、業界紙、手作業でのWeb検索）
-    * **未解決の課題**： （例：SPEEDAは高機能だが高価すぎる。帝国データバンクは信用調査が主目的。業界紙やWeb検索は情報が断片的で、体系的な分析に時間がかかりすぎる。）
-* **市場規模推定**：
-    1.  **マクロデータ**： 日本の中小企業数：XXX社 (出典：中小企業庁「中小企業白書」、202X年)
-    2.  **絞り込み条件1（業種）**：
-        * **根拠データ**： 全企業のうち「IT・情報通信業」の割合はX.X% (出典：総務省「経済センサス」、202X年)
-        * **計算**： XXX社 × X.X% ≈ YYY社
-    3.  **絞り込み条件2（従業員規模）**：
-        * **根拠データ**： IT・情報通信業のうち「従業員10名未満」の割合はXX% (出典：〇〇調査、202X年)
-        * **計算**： YYY社 × XX% ≈ ZZZ社
-    * **推定ターゲット人数**： **約ZZZ人** (※1社に経営者1人と仮定)
+---
+### 評価の根拠
+#### 定性的な分析
+（ここに、因果関係の強さ、網羅性、解像度などの観点からの分析を記述）
 
-### 【セグメントB：(セグメントBの定義を記載)】
-* **現状の代替手段と未解決の課題**：
-    * **代替手段**： （具体的なサービス名や手段を記載）
-    * **未解決の課題**： （解決できていない点を記載）
-* **市場規模推定**：
-    * **計算ロジックと出典を明記**
-    * **推定ターゲット人数**： **約WWW人** (※1社に経営者1人と仮定)
+#### 定量的な示唆
+（ここに、評価を裏付けるために有用なデータの種類や、調査の方向性に関する示唆を記述）
 
-### 【セグメントC：(セグメントCの定義を記載)】
-* **現状の代替手段と未解決の課題**：
-    * **代替手段**： （具体的なサービス名や手段を記載）
-    * **未解決の課題**： （解決できていない点を記載）
-* **市場規模推定**：
-    * **計算ロジックと出典を明記**
-    * **推定ターゲット人数**： **約VVV人** (※1社に経営者1人と仮定)
+---
+### 評価基準
+* **スコア 9-10 (極めて適切):** 課題が問題の根本原因をほぼ完璧に捉えており、反論の余地がほとんどない。課題を解決すれば、問題が劇的に改善されることが明白。
+* **スコア 7-8 (適切):** 課題は問題の主要な原因を的確に捉えている。一部に他の要因も考えられるが、設定された課題の重要度は非常に高い。
+* **スコア 5-6 (平均的):** 課題は問題の一因ではあるが、それだけでは根本原因を説明しきれない。他にも同等以上に重要な課題が存在する可能性が高い。
+* **スコア 3-4 (不十分):** 課題と問題の関連性はあるものの、表層的であったり、論理的な飛躍があったりする。より深掘りした原因分析が必要。
+* **スコア 1-2 (不適切):** 課題が問題の根本原因とは言えない。論理的な繋がりが欠けているか、見当違いの点を指摘している。
 
-## 4. サマリーと総合評価
+# 制約条件 (Constraints)
+* 必ず指定された出力形式に従ってください。
+* 評価は情に流されず、あくまで論理と客観性に基づいて厳密に行ってください。
+* 専門用語は避け、誰が読んでも理解できる平易な言葉で説明してください。
 
-| セグメント | 定義 | 推定ターゲット人数 | 総合魅力度 (/10) |
-| :--- | :--- | :--- | :--- |
-| **A** | (セグメントAの定義) | 約ZZZ人 | (評価点) |
-| **B** | (セグメントBの定義) | 約WWW人 | (評価点) |
-| **C** | (セグメントCの定義) | 約VVV人 | (評価点) |
+では、準備ができましたら、以下の入力に対する評価をお願いします。
 
-* **総合評価の根拠**：
-    * **セグメントA (評価：X/10)**： （例：人数は中程度だが、既存サービスの価格と機能のミスマッチが大きく、明確なペインが存在するため。）
-    * **セグメントB (評価：Y/10)**： （例：人数は最も少ないものの、事業成長に市場調査が直結するため、最も切実なニーズを持つ層と考えられる。多少高価でも投資する可能性があり、最も魅力的なセグメントと評価する。）
-    * **セグメントC (評価：Z/10)**： （例：ターゲット人数は最も多く魅力的だが、ITリテラシーや新しいサービスへの感度にばらつきが大きい可能性があり、アプローチの難易度を考慮して平均的な評価とした。）
+**【問題】**
+{{PROBLEM}}
 
-# 制約・指示（Constraints）
-* **ファクトベース**： 必ず公開されている信頼性の高い情報源に基づいて回答してください。架空の数値や、根拠のない推測で数値を生成することは絶対に避けてください。
-* **思考プロセスの透明性**： 「なぜそのデータを使ったのか」「なぜそのように計算したのか」という思考のプロセスを必ず記述してください。
-* **情報源の明記**： すべての数値データについて、出典を厳密に記載してください。
-* **総合評価の客観性**： 総合魅力度評価は、あなたの専門的知見に基づくものですが、その評価に至った理由（市場規模、ペインの強さ、アプローチのしやすさ等）を必ず明記し、客観的に理解できるよう努めてください。
-* **不明確な点**： もし、推定に必要なデータが見つからない、または複数の解釈が可能で判断に迷う場合は、安易に結論を出さず、「〇〇のデータが不足しているため、この部分は仮説となります」のように、ユーザーに注意を促す形で回答してください。
+**【課題】**
+{{ISSUE}}
 `.trim();
 
         generateBtn.addEventListener('click', () => {
             const problem = problemInput.value.trim();
-            if (problem) {
-                const finalPrompt = promptTemplate.replace(/{{PROBLEM}}/g, problem);
-                promptOutput.textContent = finalPrompt;
-                if(outputSection.classList.contains('hidden')) {
-                    outputSection.classList.remove('hidden');
-                    // 初回生成時のみアニメーション
-                    outputSection.classList.add('fade-in');
-                }
-                outputSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-                problemInput.focus();
+            const issue = issueInput.value.trim();
+
+            let hasError = false;
+            if (!problem) {
                 problemInput.classList.add('animate-shake');
-                setTimeout(() => {
-                    problemInput.classList.remove('animate-shake');
-                }, 500);
+                setTimeout(() => problemInput.classList.remove('animate-shake'), 500);
+                hasError = true;
             }
+            if (!issue) {
+                issueInput.classList.add('animate-shake');
+                setTimeout(() => issueInput.classList.remove('animate-shake'), 500);
+                hasError = true;
+            }
+
+            if (hasError) {
+                if (!problem) problemInput.focus();
+                else issueInput.focus();
+                return;
+            }
+            
+            let finalPrompt = promptTemplate.replace('{{PROBLEM}}', problem);
+            finalPrompt = finalPrompt.replace('{{ISSUE}}', issue);
+            
+            promptOutput.textContent = finalPrompt;
+            
+            if(outputSection.classList.contains('hidden')) {
+                outputSection.classList.remove('hidden');
+                // 初回生成時のみアニメーション
+                outputSection.classList.add('fade-in');
+            }
+            outputSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
 
         copyBtn.addEventListener('click', () => {
